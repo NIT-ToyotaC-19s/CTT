@@ -1,0 +1,19 @@
+{
+  "name": "ctt",
+  "version": "1.0.0",
+  "description": "Capture The Toyota(for 2020s Koyo Fes)",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NIT-ToyotaC-19s/CTT.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NIT-ToyotaC-19s/CTT/issues"
+  },
+  "homepage": "https://github.com/NIT-ToyotaC-19s/CTT#readme"
+}
