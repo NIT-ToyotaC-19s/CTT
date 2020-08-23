@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/NIT-ToyotaC-19s/CTT/issues"
   },
-  "homepage": "https://github.com/NIT-ToyotaC-19s/CTT#readme"
+  "homepage": "https://github.com/NIT-ToyotaC-19s/CTT#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
