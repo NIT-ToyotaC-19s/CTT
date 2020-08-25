@@ -13,32 +13,32 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.post('/', (req, res) => {
-    const isCorrectAnswer = function (queston, user_answer) {
-        return Promise.resolve(() => {
+    const isCorrectAnswer = function (question, user_answer) {
+        return new Promise((resolve, reject) => {
             const error = new ReferenceError();
             const AnswerData = JSON.parse(fs.readFileSync('')); // 解答のファイルパスを渡す(json)
 
-            if (AnswerData[queston] !== void 0) { //渡されたインデックスの問題があるか確認する(void 0 は常にundefindを返す)
-                if (AnswerData[queston] === user_answer) {//正答
+            if (AnswerData[question]) { //渡されたインデックスの問題があるか確認する
+                if (AnswerData[question].answer === user_answer) {//正答
                     resolve(true);
                 }
                 else {
                     resolve(false);
                 }
             } else {//そんな問題はない
-                error.message = `Question ${queston} does not exists.`;
+                error.message = `Question ${question} does not exists.`;
                 throw error;
             }
         });
     }
-    isCorrectAnswer(req.body.question, req.body.user_name)
+    isCorrectAnswer(req.body.question, req.body.user_answer)
         .then((judgeResult) => {
             var responceJson = { // responce template
                 err: "",
                 isCorrect: false,
                 url_snippet: ""
             }
-
+            console.log(judgeResult);
             if (judgeResult) {// 正解の時だけjsonを加工する
                 const UrlData = JSON.parse(fs.readFileSync('')); //URLのデータが入ってるjsonファイルを渡す
                 responceJson.isCorrect = true;
@@ -54,7 +54,6 @@ app.post('/', (req, res) => {
             if (err instanceof ReferenceError) {
                 res.status(404).send(err.message);
             }
-            res.status(500).send(err); //とりあえず全部500返します(後で考えます)
         });
 });
 
