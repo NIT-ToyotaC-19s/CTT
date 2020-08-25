@@ -3,6 +3,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 const path = require('path');
 const fs = require('fs');
+const { resolveAny } = require('dns');
 
 
 app.use(express.static(path.join(__dirname, 'static')));
@@ -14,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.post('/', (req, res) => {
     const isCorrectAnswer = function (queston, user_answer) {
         return Promise.resolve(() => {
-            const error = new Error();
+            const error = new ReferenceError();
             const AnswerData = JSON.parse(fs.readFileSync('')); // 解答のファイルパスを渡す(json)
 
             if (AnswerData[queston] !== void 0) { //渡されたインデックスの問題があるか確認する(void 0 は常にundefindを返す)
@@ -50,6 +51,9 @@ app.post('/', (req, res) => {
         })
         .catch((err) => {
             console.error(err.message);
+            if (err instanceof ReferenceError) {
+                res.status(404).send(err.message);
+            }
             res.status(500).send(err); //とりあえず全部500返します(後で考えます)
         });
 });
