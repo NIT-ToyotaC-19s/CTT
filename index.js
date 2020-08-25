@@ -3,7 +3,6 @@ const app = express();
 const port = process.env.PORT || 3000;
 const path = require('path');
 const fs = require('fs');
-const { resolveAny } = require('dns');
 
 
 app.use(express.static(path.join(__dirname, 'static')));
