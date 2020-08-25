@@ -15,16 +15,16 @@ app.post('/', (req, res) => {
     const isCorrectAnswer = function (queston, user_answer) {
         return Promise.resolve(() => {
             const error = new Error();
-            const AnswerData = JSON.parse(fs.readFileSync('')); // set answer file as json
+            const AnswerData = JSON.parse(fs.readFileSync('')); // 解答のファイルパスを渡す(json)
 
-            if (AnswerData[queston] !== void 0) { //check the question exists(void 0 always return undefind)
-                if (AnswerData[queston] === user_answer) {//correct
+            if (AnswerData[queston] !== void 0) { //渡されたインデックスの問題があるか確認する(void 0 は常にundefindを返す)
+                if (AnswerData[queston] === user_answer) {//正答
                     resolve(true);
                 }
                 else {
                     resolve(false);
                 }
-            } else {
+            } else {//そんな問題はない
                 error.message = `Question ${queston} does not exists.`;
                 throw error;
             }
