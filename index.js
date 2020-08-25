@@ -20,38 +20,46 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.post('/', (req, res) => {
-    var responceJson = { // responce template
-        err: "",
-        isCorrect: false,
-        url_snippet: ""
-    }
-
     const isCorrectAnswer = function (queston, user_answer) {
-        const AnswerData = JSON.parse(fs.readFileSync('')); // set answer file as json
+        return Promise.resolve(() => {
+            const error = new Error();
+            const AnswerData = JSON.parse(fs.readFileSync('')); // set answer file as json
 
-        if (AnswerData[queston] !== void 0) { //check the question exists(void 0 always return undefind)
-            if (AnswerData[queston] === user_answer) {//correct
-                return true;
+            if (AnswerData[queston] !== void 0) { //check the question exists(void 0 always return undefind)
+                if (AnswerData[queston] === user_answer) {//correct
+                    resolve(true);
+                }
+                else {
+                    resolve(false);
+                }
+            } else {
+                error.message = `Question ${queston} does not exists.`;
+                throw error;
             }
-            else {
-                return false;
+        });
+    }
+    isCorrectAnswer(req.body.question, req.body.user_name)
+        .then((judgeResult) => {
+            var responceJson = { // responce template
+                err: "",
+                isCorrect: false,
+                url_snippet: ""
             }
-        } else {
-            throw new Error(`Question ${queston} does not exists.`);
-        }
-    }
 
-
-    const IsCorrect = isCorrectAnswer(req.body.question, req.body.user_name);
-
-    if (IsCorrect) {
-        const UrlData = JSON.parse(fs.readFileSync('')); //URLのデータが入ってるjsonファイルを渡す
-        responceJson.isCorrect = true;
-        responceJson.url_snippet = UrlData[req.body.question];
-    }
-    //不正解ならテンプレートのまま返す
-    res.json(responceJson);
-
+            if (judgeResult) {// 正解の時だけjsonを加工する
+                const UrlData = JSON.parse(fs.readFileSync('')); //URLのデータが入ってるjsonファイルを渡す
+                responceJson.isCorrect = true;
+                responceJson.url_snippet = UrlData[req.body.question];
+            }
+            return responceJson;
+        })
+        .then((responceJson) => {
+            res.json(JSON.stringify(responceJson));
+        })
+        .catch((err) => {
+            console.error(err.message);
+            res.status(500).send(err); //とりあえず全部500返します(後で考えます)
+        });
 });
 
 app.listen(port, () => console.log(`Listening at http://localhost:${port}`));
