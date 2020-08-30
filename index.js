@@ -18,12 +18,7 @@ app.post('/', (req, res) => {
             const AnswerData = JSON.parse(fs.readFileSync('')); // 解答のファイルパスを渡す(json)
 
             if (AnswerData[question]) { //渡されたインデックスの問題があるか確認する
-                if (AnswerData[question].answer === user_answer) {//正答
-                    resolve(true);
-                }
-                else {
-                    resolve(false);
-                }
+                AnswerData[question].answer === user_answer ?  resolve(true) : resolve(false); //正答ならtrue、誤答ならfalseを渡して実行する
             } else {//そんな問題はない
                 error.message = `Question ${question} does not exists.`;
                 throw error;
