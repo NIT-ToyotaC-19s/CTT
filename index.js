@@ -17,8 +17,8 @@ app.post('/', (req, res) => {
             const error = new ReferenceError();
             const AnswerData = JSON.parse(fs.readFileSync('')); // 解答のファイルパスを渡す(json)
 
-            if (AnswerData[question]) { //渡されたインデックスの問題があるか確認する
-                resolve(AnswerData[question].answer === user_answer); //正答ならtrue、誤答ならfalseを渡して実行する
+            if (AnswerData.answers[question]) { //渡されたインデックスの問題があるか確認する
+                resolve(AnswerData.answers[question] === user_answer); //正答ならtrue、誤答ならfalseを渡して実行する
             } else {//そんな問題はない
                 error.message = `Question ${question} does not exists.`;
                 throw error;
@@ -36,7 +36,7 @@ app.post('/', (req, res) => {
             if (judgeResult) {// 正解の時だけjsonを加工する
                 const UrlData = JSON.parse(fs.readFileSync('')); //URLのデータが入ってるjsonファイルを渡す
                 responceJson.isCorrect = true;
-                responceJson.url_snippet = UrlData[req.body.question];
+                responceJson.url_snippet = UrlData.url[req.body.question];
             }
             return responceJson;
         })
