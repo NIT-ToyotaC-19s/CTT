@@ -15,7 +15,7 @@ app.post('/', (req, res) => {
     const isCorrectAnswer = function (question, user_answer) {
         return new Promise((resolve, reject) => {
             const error = new ReferenceError();
-            const AnswerData = JSON.parse(fs.readFileSync('')); // 解答のファイルパスを渡す(json)
+            const AnswerData = JSON.parse(fs.readFileSync('data/answers.json')); // 解答のファイルパスを渡す(json)
 
             if (AnswerData.answers[question]) { //渡されたインデックスの問題があるか確認する
                 resolve(AnswerData.answers[question] === user_answer); //正答ならtrue、誤答ならfalseを渡して実行する
@@ -34,7 +34,7 @@ app.post('/', (req, res) => {
             }
             console.log(judgeResult);
             if (judgeResult) {// 正解の時だけjsonを加工する
-                const UrlData = JSON.parse(fs.readFileSync('')); //URLのデータが入ってるjsonファイルを渡す
+                const UrlData = JSON.parse(fs.readFileSync('data/url.json')); //URLのデータが入ってるjsonファイルを渡す
                 responceJson.isCorrect = true;
                 responceJson.url_snippet = UrlData.url[req.body.question];
             }
