@@ -1,15 +1,47 @@
 <template>
   <div class="home">
-    Welcome to Capture The Toyota.
+    <!-- Welcome to Capture The Toyota.
     <br>
     問題一覧へ
     <router-link to="/catalog">catalog</router-link>
     <router-view />
-    <!-- <router-link to="/">home</router-link>,
-    <router-link to="/catalog">catalog</router-link>,
-    <router-link to="/question">question</router-link>, -->
-    <!-- <router-link to="/q">q</router-link>, -->
     this is home.
+ -->
+
+  <v-parallax
+    dark
+    src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
+  >
+    <v-row
+      align="center"
+      justify="center"
+    >
+      <v-col
+        class="text-center"
+        cols="12"
+      >
+        <h1 class="display-1 font-weight-thin mb-4">
+          豊田高専情報工学科
+        </h1>
+        <h3 class="subheading">
+          Welcome to Capture The Toyota.
+          <!-- <br>
+          <router-link to="/catalog" style="text-decoration:none;"><h3 id="mondaihe">問題一覧へ</h3></router-link>
+          <router-view /> -->
+          <!-- <router-link to="/">home</router-link>,
+          <router-link to="/catalog">catalog</router-link>,
+          <router-link to="/question">question</router-link>, -->
+          <!-- <router-link to="/q">q</router-link>, -->
+          this is home.
+        </h3>
+      </v-col>
+    </v-row>
+  </v-parallax>
+  
+  <br>
+  <router-link to="/catalog" style="text-decoration:none;"><h3 id="mondaihe">問題一覧へ</h3></router-link>
+  <router-view />
+  <br>
   </div>
 </template>
 
@@ -24,6 +56,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#mondaihe {
+  color: green;
+}
 h3 {
   margin: 40px 0 0;
 }
