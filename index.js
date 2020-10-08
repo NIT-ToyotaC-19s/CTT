@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
-app.post('/', (req, res) => {
+app.post('/api', (req, res) => {
     const isCorrectAnswer = function (question, user_answer) {
         return new Promise((resolve, reject) => {
             const error = new ReferenceError();
