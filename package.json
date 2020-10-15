@@ -4,6 +4,7 @@
   "description": "Capture The Toyota(for 2020s Koyo Fes)",
   "main": "index.js",
   "scripts": {
+    "start":"node index.js",
     "test": "node index.js"
   },
   "repository": {
