@@ -3,7 +3,7 @@ Capture The Toyota(for 2020s Koyo Fes)
 
 ## API
 /(GET) ページを返す  
-/(POST) 正誤判定
+/api (POST) 正誤判定
 
 ## リクエスト形式
 ```
