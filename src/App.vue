@@ -53,15 +53,14 @@
 
   <v-card
     class="mx-auto overflow-hidden"
-    height="400"
   >
     <v-app-bar
       color="deep-purple"
-      dark
+      light
     >
       <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
 
-      <v-toolbar-title>豊田高専情報工学科</v-toolbar-title>
+      <v-toolbar-title>Capture The Toyota</v-toolbar-title>
     </v-app-bar>
 
     <v-navigation-drawer
@@ -110,7 +109,13 @@ export default {
       {
         name: 'Catalog',
         icon: 'mdi-file-question',
-        link:'/catalog'},
+        link:'/catalog'
+      },
+      {
+        name: 'Help',
+        icon: 'mdi-help-circle',
+        link: '/help'
+      },
       ],
     }),
 };

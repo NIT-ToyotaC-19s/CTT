@@ -1,12 +1,13 @@
 <template>
   <div class="question">
-    this is question.
     Question No. {{ this.$route.query.id }}
+    
     <br>
     問題一覧へ
     <router-link to="/catalog">catalog</router-link>
     <router-view />
     <button type="button" @click="Post_Question()">送信</button>
+    {{ isCorrect }}
   </div>
 </template>
 
@@ -26,7 +27,8 @@ export default {
       //   }
       // },
     user_answer: 'hoge',
-    jadge: 0,
+    jadge: false,
+    isCorrect: false,
     question: this.$route.query.id,
   };
 },
@@ -34,11 +36,15 @@ export default {
     Post_Question() {
       // this.$axios.post('http://localhost:8080/',
       // this.$axios.post('https://plated-campaign-291611.df.r.appspot.com/',
-      this.$axios.post('/',
+      this.$axios.post('/api',
       // {question: this.question, user_answer: this.user_answer}, this.requestHeader)
       {question: this.question, user_answer: this.user_answer})
           .then((response) => {
-            alert(response + 'アバター情報を登録しました');
+            console.log(response);
+            console.log(response.data);
+            alert(response + '答えを送信しました');
+            this.jadge = true;
+            this.isCorrect = response.data["isCorrect"];
           })
           .catch((e) => {
             alert(e);

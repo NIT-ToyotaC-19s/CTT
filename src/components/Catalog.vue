@@ -1,20 +1,34 @@
 <template>
   <div class="catalog">
     <v-app>
-    this is catalog.
+      <p class="title-border">General</p>
+    <router-link :to="{name: 'Question', query: {id: 0}}" style="text-decoration:none;">
     <v-card elevation="7" class="questions">
-      問題１．DNNに触れてみよう
+      <img src="../assets/NITTC_logo.png">
+      問題０．DNSに触れてみよう
       <br>
-      難易度★★☆
+      : 難易度★★☆
       <br>
-      <router-link :to="{name: 'Question', query: {id: 1}}">Work on</router-link>
+
+      <!-- <v-row
+    align="center"
+    justify="space-around"
+  > -->
+  <!-- <router-link :to="{name: 'Question', query: {id: 0}}" style="text-decoration:none;"> -->
+    <!-- <v-btn text class="workon">
+      Work on!
+    </v-btn> -->
+  <!-- </router-link> -->
+  <!-- </v-row> -->
+      <!-- <router-link :to="{name: 'Question', query: {id: 1}}">Work on</router-link> -->
     </v-card>
-    <v-card elevation="7">
+  </router-link>
+    <v-card elevation="7" class="questions">
       問題２．COCOAについて知ろう
       <br>
       <router-link :to="{name: 'Question', query: {id: 2}}">この問題に取り組む！</router-link>
     </v-card>
-    <v-card elevation="7">
+    <v-card elevation="7" class="questions">
       問題３．蟻蟻蟻
       <br>
       <router-link :to="{name: 'Question', query: {id: 3}}">この問題に取り組む！</router-link>
@@ -88,8 +102,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-questions {
-  color: red;
+.questions {
+  /* color: red; */
+  margin-bottom: 20px;
+  overflow: hidden;
+  font-size: 18px;
 }
 h3 {
   margin: 40px 0 0;
@@ -104,5 +121,38 @@ li {
 }
 a {
   color: #42b983;
+}
+.workon {
+  color: red;
+  margin-left: 65%;
+}
+
+.title-border {
+display: flex;
+align-items: center;
+margin-top: 20px;
+font-size: 30px;
+}
+.title-border:before,
+.title-border:after {
+border-top: 1px solid;
+content: "";
+flex-grow: 1;
+}
+.title-border:before {
+margin-right: 1rem;
+}
+.title-border:after {
+margin-left: 1rem;
+}
+.catalog {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+img {
+  width: 70px;
+  height: 70px;
+  float: left;
+  margin-right: 10px;
 }
 </style>
