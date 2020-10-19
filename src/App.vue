@@ -53,12 +53,14 @@
 
   <v-card
     class="mx-auto overflow-hidden"
+    style="margin-top:60px"
   >
     <v-app-bar
       color="deep-purple"
       light
+      fixed
     >
-      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+    <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
 
       <v-toolbar-title>Capture The Toyota</v-toolbar-title>
     </v-app-bar>

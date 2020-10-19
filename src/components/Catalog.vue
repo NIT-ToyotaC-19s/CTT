@@ -2,10 +2,10 @@
   <div class="catalog">
     <v-app>
       <p class="title-border">General</p>
-    <router-link :to="{name: 'Question', query: {id: 0}}" style="text-decoration:none;">
+    <router-link :to="{name: 'Question', query: {id: 1}}" style="text-decoration:none;">
     <v-card elevation="7" class="questions">
       <img src="../assets/NITTC_logo.png">
-      問題０．DNSに触れてみよう
+      問題1．DNSに触れてみよう
       <br>
       : 難易度★★☆
       <br>
