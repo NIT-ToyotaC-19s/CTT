@@ -5,34 +5,150 @@
     <router-link :to="{name: 'Question', query: {id: 1}}" style="text-decoration:none;">
     <v-card elevation="7" class="questions">
       <img src="../assets/NITTC_logo.png">
-      問題1．DNSに触れてみよう
+      問題1．場所の名前
       <br>
-      : 難易度★★☆
+      : 難易度★☆☆
       <br>
-
-      <!-- <v-row
-    align="center"
-    justify="space-around"
-  > -->
-  <!-- <router-link :to="{name: 'Question', query: {id: 0}}" style="text-decoration:none;"> -->
-    <!-- <v-btn text class="workon">
-      Work on!
-    </v-btn> -->
-  <!-- </router-link> -->
-  <!-- </v-row> -->
-      <!-- <router-link :to="{name: 'Question', query: {id: 1}}">Work on</router-link> -->
     </v-card>
   </router-link>
+      <router-link :to="{name: 'Question', query: {id: 2}}" style="text-decoration:none;">
+      <v-card elevation="7" class="questions">
+        <img src="../assets/NITTC_logo.png">
+        問題2．場所の名前
+        <br>
+        : 難易度★★☆
+        <br>
+      </v-card>
+    </router-link>
+    <router-link :to="{name: 'Question', query: {id: 3}}" style="text-decoration:none;">
     <v-card elevation="7" class="questions">
-      問題２．COCOAについて知ろう
+      <img src="../assets/NITTC_logo.png">
+      問題3．場所の名前
       <br>
-      <router-link :to="{name: 'Question', query: {id: 2}}">この問題に取り組む！</router-link>
-    </v-card>
-    <v-card elevation="7" class="questions">
-      問題３．蟻蟻蟻
+      : 難易度★☆☆
       <br>
-      <router-link :to="{name: 'Question', query: {id: 3}}">この問題に取り組む！</router-link>
     </v-card>
+  </router-link>
+  <router-link :to="{name: 'Question', query: {id: 4}}" style="text-decoration:none;">
+  <v-card elevation="7" class="questions">
+    <img src="../assets/NITTC_logo.png">
+    問題4．場所の名前
+    <br>
+    : 難易度★☆☆
+    <br>
+  </v-card>
+</router-link>
+<router-link :to="{name: 'Question', query: {id: 5}}" style="text-decoration:none;">
+<v-card elevation="7" class="questions">
+  <img src="../assets/NITTC_logo.png">
+  問題5．場所の名前
+  <br>
+  : 難易度★★☆
+  <br>
+</v-card>
+</router-link>
+<router-link :to="{name: 'Question', query: {id: 6}}" style="text-decoration:none;">
+<v-card elevation="7" class="questions">
+  <img src="../assets/NITTC_logo.png">
+  問題6．場所の名前
+  <br>
+  : 難易度★☆☆
+  <br>
+</v-card>
+</router-link>
+<router-link :to="{name: 'Question', query: {id: 7}}" style="text-decoration:none;">
+<v-card elevation="7" class="questions">
+  <img src="../assets/NITTC_logo.png">
+  問題7．場所の名前
+  <br>
+  : 難易度★★☆
+  <br>
+</v-card>
+</router-link>
+
+<p class="title-border">Academic</p>
+  <router-link :to="{name: 'Question', query: {id: 8}}" style="text-decoration:none;">
+  <v-card elevation="7" class="questions">
+    <img src="../assets/NITTC_logo.png">
+    問題8．場所の名前
+    <br>
+    : 難易度★★☆
+    <br>
+  </v-card>
+</router-link>
+<router-link :to="{name: 'Question', query: {id: 9}}" style="text-decoration:none;">
+<v-card elevation="7" class="questions">
+  <img src="../assets/NITTC_logo.png">
+  問題9．場所の名前
+  <br>
+  : 難易度★★★
+  <br>
+</v-card>
+</router-link>
+<router-link :to="{name: 'Question', query: {id: 10}}" style="text-decoration:none;">
+<v-card elevation="7" class="questions">
+<img src="../assets/NITTC_logo.png">
+問題10．場所の名前
+<br>
+: 難易度★★★
+<br>
+</v-card>
+</router-link>
+<router-link :to="{name: 'Question', query: {id: 11}}" style="text-decoration:none;">
+<v-card elevation="7" class="questions">
+<img src="../assets/NITTC_logo.png">
+問題11．場所の名前
+<br>
+: 難易度★★☆
+<br>
+</v-card>
+</router-link>
+<router-link :to="{name: 'Question', query: {id: 12}}" style="text-decoration:none;">
+<v-card elevation="7" class="questions">
+<img src="../assets/NITTC_logo.png">
+問題12．場所の名前
+<br>
+: 難易度★★★
+<br>
+</v-card>
+</router-link>
+<router-link :to="{name: 'Question', query: {id: 13}}" style="text-decoration:none;">
+<v-card elevation="7" class="questions">
+  <img src="../assets/NITTC_logo.png">
+  問題13．場所の名前
+  <br>
+  : 難易度★★☆
+  <br>
+</v-card>
+</router-link>
+  <router-link :to="{name: 'Question', query: {id: 14}}" style="text-decoration:none;">
+  <v-card elevation="7" class="questions">
+    <img src="../assets/NITTC_logo.png">
+    問題14．場所の名前
+    <br>
+    : 難易度★★☆
+    <br>
+  </v-card>
+</router-link>
+<router-link :to="{name: 'Question', query: {id: 15}}" style="text-decoration:none;">
+<v-card elevation="7" class="questions">
+  <img src="../assets/NITTC_logo.png">
+  問題15．場所の名前
+  <br>
+  : 難易度★★☆
+  <br>
+</v-card>
+</router-link>
+<router-link :to="{name: 'Question', query: {id: 16}}" style="text-decoration:none;">
+<v-card elevation="7" class="questions">
+<img src="../assets/NITTC_logo.png">
+問題16．場所の名前
+<br>
+: 難易度★☆☆
+<br>
+</v-card>
+</router-link>
+    <!-- </v-card> -->
     <!-- <router-link :to="{name: 'Question', query: {id: 1}}">question_1</router-link>,
     <router-link :to="{name: 'Question', query: {id: 2}}">question_2</router-link>,
     <router-link :to="{name: 'Question', query: {id: 3}}">question_3</router-link>, -->

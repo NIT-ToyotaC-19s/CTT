@@ -1,17 +1,43 @@
 <template>
   <div class="question">
     <v-app>
-    Question No. {{ this.$route.query.id }}
-    <br>
+      <br>
+    <p align=center class="title">Question No. {{ this.$route.query.id }}</p>
     <!-- {{ question_data[this.$route.query.id] }} -->
-    <div v-for="q in question_data[this.$route.query.id].choose" :key="q">
-      <v-btn color="white" block class="black--text">{{ q }}</v-btn>
+    <p class="title-border">Choose</p>
+    <div v-for="(q, index) in question_data[this.$route.query.id].choose" :key="q">
+      <v-btn color="white" block class="black--text" @click="Save_Answer(index+1)"><span class="mgr-10">{{ index+1 }}.</span> {{ q }}</v-btn>
     </div>
-    問題一覧へ
-    <router-link to="/catalog">catalog</router-link>
-    <router-view />
-    <v-btn @click="Post_Question()">送信</v-btn>
+    <br>
+    <p align=center>あなたの選択肢：{{ user_answer }}</p>
+    <v-btn @click="Post_Question()" :disabled="jadge">送信(一度しかできません)</v-btn>
     {{ isCorrect }}
+    <br>
+
+    <p v-if="loading" align=center>Now Jadging...</p>
+    <vue-loading
+      type="spiningDubbles"
+      color="#aaa"
+      :size="{ width: '100px', height: '100px' }"
+      v-if="loading"
+      >
+    </vue-loading>
+
+    <v-card elevation="6" v-if="jadge" v-show="!loading">
+    <span v-if="isCorrect">
+      <p align=center class="result">正解</p>
+      <p>すごい</p>
+    </span>
+    <span v-else>
+      <p align=center class="result">不正解</p>
+      <p>残念！</p>
+    </span>
+    </v-card>
+    <br>
+    <!-- <router-link to="/catalog" style="text-decoration:none;" class="ichiranhe"><v-btn class=goto-catalog @click="GoTo_Catalog">問題一覧へ</v-btn></router-link> -->
+    <v-btn class=goto-catalog @click="GoTo_Catalog">問題一覧へ</v-btn>
+    <router-view />
+
   </v-app>
   </div>
 </template>
@@ -31,9 +57,13 @@ export default {
             // 'Access-Control-Allow-Origin': '*',
       //   }
       // },
-    user_answer: 'hoge',
+    user_answer: "選択されていません",
     jadge: false,
+    // jadge: this.$localStorage.get('jadge')[this.$route.query.id + 1],
+    loading: false,
+    // btn_class: 'btn-active',
     isCorrect: false,
+    // isCorrect: this.$localStorage.get('isCorrect')[this.$route.query.id + 1],
     question: this.$route.query.id,
     question_data:
     {1: {"choose": ["太田 稔彦(おおた としひこ)", "豊田　章男(とよた　あきお)", "田川　智彦(たがわ ともひこ)", "河野　太郎(こうの　たろう)"], "ans_number": 3},
@@ -63,14 +93,33 @@ export default {
           .then((response) => {
             console.log(response);
             console.log(response.data);
-            alert(response + '答えを送信しました');
-            this.jadge = true;
+            // alert(response + '答えを送信しました');
+            // this.jadge = true;
+            this.$localStorage.set('jadge'[this.$route.query.id - 1], true);
+            console.log(this.$localStorage.get('jadge'));
+            this.btn_class = 'btn-imactive';
             this.isCorrect = response.data["isCorrect"];
+            this.loading = true;
+            setTimeout(() => {
+                this.loading = false;
+              },
+              3000
+            );
+
+            // this.loading = false;
           })
           .catch((e) => {
             alert(e);
           })
-    }
+    },
+
+    Save_Answer(num) {
+      this.user_answer = num;
+    },
+    GoTo_Catalog() {
+      this.$router.push('/catalog');
+      // console.log(this.$localStorage.get('jadge')[5]);
+    },
   },
 }
 </script>
@@ -90,5 +139,36 @@ li {
 }
 a {
   color: #42b983;
+}
+.title-border {
+display: flex;
+align-items: center;
+margin-top: 20px;
+font-size: 30px;
+}
+.title-border:before,
+.title-border:after {
+border-top: 1px solid;
+content: "";
+flex-grow: 1;
+}
+.title-border:before {
+margin-right: 1rem;
+}
+.title-border:after {
+margin-left: 1rem;
+}
+.title {
+  font-size: 30px;
+}
+.goto-catalog {
+  color: black;
+}
+.mgr-10 {
+  margin-right: 25px;
+}
+.result {
+  font-size: 30px;
+  background: linear-gradient(transparent 60%, yellow 50%);
 }
 </style>
