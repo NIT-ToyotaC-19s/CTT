@@ -30,7 +30,6 @@ app.post('/api', (req, res) => {
             var responceJson = { // responce template
                 err: "",
                 isCorrect: false,
-                url_snippet: ""
             }
             console.log(judgeResult);
             if (judgeResult) {// 正解の時だけjsonを加工する
