@@ -25,7 +25,7 @@
     <v-card elevation="6" v-if="$localStorage.get('jadge'+id)" v-show="!loading" class="comment-card">
     <span v-if="$localStorage.get('isCorrect'+id)" class="comment-card">
       <p align=center class="result">正解</p>
-      <p>すごい</p>
+      <p>すごい！</p>
       {{ question_data[this.$route.query.id].comment }}
     </span>
     <span v-else>
@@ -70,8 +70,8 @@ export default {
     // isCorrect: this.$localStorage.get('isCorrect')[this.$route.query.id + 1],
     question: this.$route.query.id,
     question_data:
-    {1: {"choose": ["太田 稔彦(おおた としひこ)", "豊田　章男(とよた　あきお)", "田川　智彦(たがわ ともひこ)", "河野　太郎(こうの　たろう)"],
-         "comment": "太田 稔彦は豊田市長，豊田　章男はトヨタの社長，河野　太郎は政治家で現行革相です．ちなみに田川校長は化学工学者で名古屋大学名誉教授でもあります．"},
+    {1: {"choose": ["太田 稔彦(おおた としひこ)", "豊田 章男(とよた　あきお)", "田川 智彦(たがわ ともひこ)", "河野 太郎(こうの　たろう)"],
+         "comment": "太田 稔彦は豊田市長，豊田 章男はトヨタの社長，河野 太郎は政治家で現行革相です．ちなみに田川校長は化学工学者で名古屋大学名誉教授でもあります．"},
      2: {"choose": ["準学士", "学士", "修士", "博士"],
          "comment": "準学士は高専特有の学位で短大では短期大学士という名前です．実は準学士は厳密には学位ではなく称号と呼ばれるものなので，日本国内でしか通用しません:("},
      3: {"choose": ["3", "4", "5", "6"],
@@ -132,11 +132,17 @@ export default {
             this.loading = true;
             console.log('jadge'+String(this.id)+': '+this.$localStorage.get('jadge'+String(this.id)));
             console.log('isCorrect'+String(this.id)+': '+this.$localStorage.get('isCorrect'+String(this.id)));
-            setTimeout(() => {
-                this.loading = false;
-              },
-              3000
-            );
+
+            if (JSON.parse(response.data).err) {
+              this.$localStorage.set('jadge'+String(this.id), false);
+              alert("エラーが発生しました．時間を置いて再度送信してください．解決ばあいは2I教室の学生に相談してください．");
+            } else {
+              setTimeout(() => {
+                  this.loading = false;
+                },
+                3000
+              );
+            }
 
             // this.loading = false;
           })
