@@ -40,16 +40,18 @@
   </v-parallax>
 
   <div id='intro'>
-    <br>
-  <router-link to="/catalog" style="text-decoration:none;"><h3 id="mondaihe">問題一覧へ</h3></router-link>
-  <router-view />
   <br>
-  aaaa
+  <p>情報工学科2年へようこそ！</p>
   <br>
-  aaaaa
+  <p>ここではCTTというクイズラリーができます</p>
   <br>
-  aaaa
+  <p>クイズには一般向け問題と情報向け問題の2種類があります</p>
   <br>
+  <p>正答数に応じて景品をさしあげます</p>
+  <br>
+<router-link to="/catalog" style="text-decoration:none;"><h3 id="mondaihe">問題一覧へ</h3></router-link>
+<router-view />
+<br>
 </div>
   </div>
 </template>
@@ -75,7 +77,7 @@ div {
   margin-top: 125px;
 }
 #mondaihe {
-  color: green;
+  color: skyblue;
 }
 h3 {
   margin: 40px 0 0;

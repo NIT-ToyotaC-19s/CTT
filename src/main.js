@@ -24,14 +24,82 @@ new Vue({
   render: h => h(App),
 
   localStorage: {
-    jadge: {
-      type: Array,
-      default: Array(16).fill(false),
+    jadge1: {
+      type: Boolean,
+      default: false,
     },
-    isCorrect: {
-      type: Array,
-      default: Array(16).fill(false),
+    isCorrect1: {
+      type: Boolean,
+      default: false,
     },
+    isCorrect2: {
+      type: Boolean,
+      default: false,
+    },
+    isCorrect3: {
+      type: Boolean,
+      default: false,
+    },
+    isCorrect4: {
+      type: Boolean,
+      default: false,
+    },
+    isCorrect5: {
+      type: Boolean,
+      default: false,
+    },
+    isCorrect6: {
+      type: Boolean,
+      default: false,
+    },
+    isCorrect7: {
+      type: Boolean,
+      default: false,
+    },
+    isCorrect8: {
+      type: Boolean,
+      default: false,
+    },
+    isCorrect9: {
+      type: Boolean,
+      default: false,
+    },
+    isCorrect10: {
+      type: Boolean,
+      default: false,
+    },
+    isCorrect11: {
+      type: Boolean,
+      default: false,
+    },
+    isCorrect12: {
+      type: Boolean,
+      default: false,
+    },
+    isCorrect13: {
+      type: Boolean,
+      default: false,
+    },
+    isCorrect14: {
+      type: Boolean,
+      default: false,
+    },
+    isCorrect15: {
+      type: Boolean,
+      default: false,
+    },
+    isCorrect16: {
+      type: Boolean,
+      default: false,
+    },
+    // jadge: {
+    //   type: Array,
+    //   default: Array(16).fill(false),
+    // },
+    // isCorrect: {
+    //   type: Array,
+    //   default: Array(16).fill(false),
+    // },
     // jadge1: {
     //   type: Boolean,
     //   default: false,

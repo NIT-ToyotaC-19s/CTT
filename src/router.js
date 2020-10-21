@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import Catalog from '@/components/Catalog'
 import Question from '@/components/Question'
 import Help from '@/components/Help'
+import Score from '@/components/Score'
 
 // import store from '@/store'
 
@@ -16,6 +17,7 @@ const router = new VueRouter({
       { path: '/catalog', component: Catalog, name: 'Catalog' },
       { path: '/question', component: Question, name: 'Question' },
       { path: '/help', component: Help, name: 'Help'},
+      { path: '/score', component: Score, name: 'Score'},
     ]
 })
 

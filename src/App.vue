@@ -114,6 +114,11 @@ export default {
         link:'/catalog'
       },
       {
+        name: 'Score',
+        icon: 'mdi-counter',
+        link: '/score'
+      },
+      {
         name: 'Help',
         icon: 'mdi-help-circle',
         link: '/help'
