@@ -34,9 +34,7 @@ app.post('/api', (req, res) => {
             }
             console.log(judgeResult);
             if (judgeResult) {// 正解の時だけjsonを加工する
-                const UrlData = JSON.parse(fs.readFileSync('data/url.json')); //URLのデータが入ってるjsonファイルを渡す
                 responceJson.isCorrect = true;
-                responceJson.url_snippet = UrlData.url[req.body.question];
             }
             return responceJson;
         })

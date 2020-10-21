@@ -19,7 +19,6 @@ Capture The Toyota(for 2020s Koyo Fes)
 {
     "Error":"",  //そもそもリクエストがエラーになったかどうか 成功なら空文字
     "isCorrect":"True",  //問題に正解したか
-    "url_snippet":"https://www"     //最終URLの断片
 }
 ```
 ### Other Status code(error)
@@ -27,6 +26,5 @@ Capture The Toyota(for 2020s Koyo Fes)
 {
     "Error":"AttributeError: Request needs 2 attributes,but 1 sent.",
     "isCorrect":"False",
-    "url_snippet":""
 }
 ```
