@@ -39,15 +39,24 @@ export default {
       score2: [this.$localStorage.get('isCorrect8'), this.$localStorage.get('isCorrect9'), this.$localStorage.get('isCorrect10'), this.$localStorage.get('isCorrect11'),
                this.$localStorage.get('isCorrect12'), this.$localStorage.get('isCorrect13'), this.$localStorage.get('isCorrect14'), this.$localStorage.get('isCorrect15'),
                this.$localStorage.get('isCorrect16')].filter(function(x){return x==true}).length * 2,
-      complete: false,
+      // complete: false,
     };
   },
   methods: {
     Complete() {
       this.$localStorage.set("complete", true);
-      this.complete = this.$localStorage.get('complete');
+      // this.complete = this.$localStorage.get('complete');
       // console.log(this.$localStorage.get("complete"));
+      this.$router.push('/');
     },
+    // Btn_Disabled() {
+    //   if (this.$localStorage.get('complet') == 'true') {
+    //     return true;
+    //   } else {
+    //     return false;
+    //   }
+    //
+    // },
   },
 }
 </script>

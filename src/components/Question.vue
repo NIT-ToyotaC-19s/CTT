@@ -6,7 +6,8 @@
     <!-- {{ question_data[this.$route.query.id] }} -->
     <p class="title-border">Choose</p>
     <div v-for="(q, index) in question_data[this.$route.query.id].choose" :key="q">
-      <v-btn color="white" block class="black--text" @click="Save_Answer(index+1)"><span class="mgr-10">{{ index+1 }}.</span> {{ q }}</v-btn>
+      <v-btn color="white" block class="black--text" @click="Save_Answer(index+1)" :disabled="$localStorage.get('jadge'+id)"><span class="mgr-10">{{ index+1 }}.</span> {{ q }}</v-btn>
+      <!-- <v-btn color="white" block class="black--text" @click="Save_Answer(index+1)"><span class="mgr-10">{{ index+1 }}.</span> {{ q }}</v-btn> -->
     </div>
     <br>
     <p align=center>あなたの選択肢：{{ user_answer }}</p>
@@ -128,7 +129,7 @@ export default {
 
             if (JSON.parse(response.data).err) {
               this.$localStorage.set('jadge'+String(this.id), false);
-              alert("エラーが発生しました．時間を置いて再度送信してください．解決ばあいは2I教室の学生に相談してください．");
+              alert("エラーが発生しました．時間を置いて再度送信してください．解決しない場合は2I教室の学生に相談してください．");
             } else {
               setTimeout(() => {
                   this.loading = false;
@@ -151,6 +152,13 @@ export default {
       this.$router.push('/catalog');
       // console.log(this.$localStorage.get('jadge')[5]);
       // this.$localStorage.set('jadge', Array(16).fill(false));
+    },
+    Btn_Disabled() {
+      if (this.$localStorage.get('jadge'+this.id) == 'true') {
+        return true;
+      } else {
+        return false;
+      }
     },
   },
 }
