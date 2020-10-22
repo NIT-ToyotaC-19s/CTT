@@ -19,8 +19,9 @@
     <br>
     <p>Total Scoreが4以上になると景品と交換できます．</p>
     <br>
-    <v-btn @click="Complete" :disabled="complete">completed!</v-btn>
-    <p>※このボタンを押すと景品交換済みとなります．受付の学生以外は操作しないでください．</p>
+    <v-btn @click="Complete" :disabled="$localStorage.get('complete')">completed!</v-btn>
+    <p>※このボタンを押すと景品交換済みとなります．受付の学生以外は操作しないでください</p>
+    <p>この操作は取り消せません．</p>
     <br>
   </div>
 </template>

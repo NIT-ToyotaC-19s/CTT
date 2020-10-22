@@ -51,13 +51,6 @@ export default {
   },
   data() {
     return{
-      // csrfToken: Cookies.get('csrftoken'),
-      // requestHeader: {
-      // headers: {
-            // 'Content-Type': 'application/json;charset=UTF-8',
-            // 'Access-Control-Allow-Origin': '*',
-      //   }
-      // },
     id: this.$route.query.id,
     user_answer: "選択されていません",
     // jadge: false,
@@ -68,7 +61,7 @@ export default {
     // isCorrect: false,
     // isCorrect: this.$localStorage.get('isCorrect'+this.id),
     // isCorrect: this.$localStorage.get('isCorrect')[this.$route.query.id + 1],
-    question: this.$route.query.id,
+    // question: this.$route.query.id,
     question_data:
     {1: {"choose": ["太田 稔彦(おおた としひこ)", "豊田 章男(とよた　あきお)", "田川 智彦(たがわ ともひこ)", "河野 太郎(こうの　たろう)"],
          "comment": "太田 稔彦は豊田市長，豊田 章男はトヨタの社長，河野 太郎は政治家で現行革相です．ちなみに田川校長は化学工学者で名古屋大学名誉教授でもあります．"},
@@ -120,7 +113,7 @@ export default {
       // this.$axios.post('https://plated-campaign-291611.df.r.appspot.com/',
       this.$axios.post('/api',
       // {question: this.question, user_answer: this.user_answer}, this.requestHeader)
-      {question: this.question, user_answer: this.user_answer})
+      {question: this.id, user_answer: this.user_answer})
           .then((response) => {
             console.log(response);
             console.log(response.data);
