@@ -123,6 +123,11 @@ export default {
         icon: 'mdi-help-circle',
         link: '/help'
       },
+      {
+        name: 'Map',
+        icon: 'mdi-map',
+        link: '/map'
+      },
       ],
     }),
 };

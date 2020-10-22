@@ -92,6 +92,10 @@ new Vue({
       type: Boolean,
       default: false,
     },
+    complete: {
+      type: Boolean,
+      default: false,
+    }
     // jadge: {
     //   type: Array,
     //   default: Array(16).fill(false),
