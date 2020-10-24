@@ -7,7 +7,7 @@ const fs = require('fs');
 var history = require('connect-history-api-fallback');
 
 app.use(history());
-app.use(express.static(path.join(__dirname, 'static')));
+app.use(express.static(path.join(__dirname, 'dist')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
