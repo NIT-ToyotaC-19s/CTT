@@ -116,16 +116,16 @@ export default {
       // {question: this.question, user_answer: this.user_answer}, this.requestHeader)
       {question: this.id, user_answer: this.user_answer})
           .then((response) => {
-            console.log(response);
-            console.log(response.data);
-            console.log(JSON.parse(response.data).isCorrect);
+            // console.log(response);
+            // console.log(response.data);
+            // console.log(JSON.parse(response.data).isCorrect);
             // this.jadge = true;
             this.$localStorage.set('jadge'+String(this.id), true);
             // this.isCorrect = response.data["isCorrect"+this.id];
             this.$localStorage.set('isCorrect'+String(this.id), JSON.parse(response.data).isCorrect);
             this.loading = true;
-            console.log('jadge'+String(this.id)+': '+this.$localStorage.get('jadge'+String(this.id)));
-            console.log('isCorrect'+String(this.id)+': '+this.$localStorage.get('isCorrect'+String(this.id)));
+            // console.log('jadge'+String(this.id)+': '+this.$localStorage.get('jadge'+String(this.id)));
+            // console.log('isCorrect'+String(this.id)+': '+this.$localStorage.get('isCorrect'+String(this.id)));
 
             if (JSON.parse(response.data).err) {
               this.$localStorage.set('jadge'+String(this.id), false);
