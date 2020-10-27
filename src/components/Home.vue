@@ -49,8 +49,11 @@
   <br>
   <p>正答数に応じて景品をさしあげます</p>
   <br>
-<router-link to="/catalog" style="text-decoration:none;"><h3 id="mondaihe">問題一覧へ</h3></router-link>
-<router-view />
+  <p>※ブラウザのシークレットモード(プライベートモード)を使用するとうまく動作しません</p>
+  <br>
+<!-- <router-link to="/catalog" style="text-decoration:none;">問題一覧へ</router-link> -->
+<!-- <router-view /> -->
+<br>
 <br>
 </div>
   </div>
@@ -71,7 +74,8 @@ div {
   text-align: center;
 }
 #intro {
-  /* background-color: lightgreen; */
+  margin-left: 5%;
+  margin-right: 5%;
 }
 #title {
   margin-top: 125px;

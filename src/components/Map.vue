@@ -3,8 +3,11 @@
     <br>
     <p class='title-border'>Map</p>
     <br>
-    <img src="../assets/nittc_map.png">
-    あとで問題の場所を記した地図も貼る予定
+    <!-- <img src="../assets/nittc_map.png"> -->
+    <br>
+    問題掲載場所を記した校内地図
+    <img src="../assets/nittc_question_map.png">
+    <br>
   </div>
 </template>
 
@@ -21,6 +24,8 @@ export default {
 <style scoped>
 div {
   text-align: center;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 .title-border {
 display: flex;
