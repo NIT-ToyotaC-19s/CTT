@@ -1,5 +1,5 @@
 <template>
-  <div class="question">
+  <!-- <div class="question"> -->
     <v-app>
       <br>
     <p align=center class="title">Question No. {{ this.$route.query.id }}</p>
@@ -11,10 +11,11 @@
     </div>
     <br>
     <p align=center>あなたの選択肢：{{ user_answer }}</p>
+
     <v-btn @click="Post_Question()" :disabled="$localStorage.get('jadge'+id)">送信(一度しかできません)</v-btn>
     <br>
 
-    <p v-if="loading" align=center>Now Jadging...</p>
+    <p v-if="loading" align=center>Now Judging...</p>
     <vue-loading
       type="spiningDubbles"
       color="#aaa"
@@ -41,7 +42,7 @@
     <router-view />
 
   </v-app>
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>

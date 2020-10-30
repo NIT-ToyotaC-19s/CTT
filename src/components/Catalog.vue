@@ -1,6 +1,6 @@
 <template>
-  <div class="catalog">
-    <v-app>
+  <!-- <div class="catalog"> -->
+    <v-app class="all">
       <p class="title-border">General</p>
   <router-link :to="{name: 'Question', query: {id: 1}}" style="text-decoration:none;">
     <v-card elevation="7" class="questions">
@@ -148,9 +148,9 @@
 <br>
 </v-card>
 </router-link>
-    <router-view />
+    <!-- <router-view /> -->
   </v-app>
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -208,6 +208,10 @@ margin-right: 1rem;
 margin-left: 1rem;
 }
 .catalog {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.all {
   margin-left: 5%;
   margin-right: 5%;
 }
