@@ -1,7 +1,7 @@
 runtime: nodejs12
 instance_class: F1
-error_handlers
-  - file dist/default-error.html
+error_handlers:
+  - file: dist/default-error.html
 
   - error_code: over_quota
     file: dist/over_quota.html
